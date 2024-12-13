@@ -1,0 +1,33 @@
+{% load static %}
+{% for dado in content.dados %}
+  <div class="card">
+    <div class="card-header">
+      <h3 class="card-title">{{ dado.title }}</h3>
+      <h6 class="d-flex justify-content-end">{{ dado.data }}</h6>
+    </div>
+    <div class="card-body">
+      {{ dado.descricao | safe }}
+    </div>
+    <!-- /.card-body -->
+    <div class="card-footer">
+      {% if dado.status == "Planejado" %}
+        <span class="badge bg-success">
+          {{ dado.status }}
+        </span>
+      {% elif dado.status == "Em Desenvolvimento" %}
+        <span class="badge bg-info">
+          {{ dado.status }}
+        </span>
+      {% elif dado.status == "Em Testes" %}
+        <span class="badge bg-warning">
+          {{ dado.status }}
+        </span>
+      {% elif dado.status == "Integrado ao sistema" %}
+        <span class="badge" style="background-color: #020d3f; color: white;">
+          {{ dado.status }}
+        </span>
+      {% endif %}
+    </div>
+    <!-- /.card-footer-->
+  </div>
+{% endfor %}

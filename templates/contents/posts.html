@@ -1,0 +1,83 @@
+{% load static %}
+<div class="row">
+  <div class="col-12">
+    <h4>{{ content.title_card }}</h4>
+  </div>
+</div>
+  <div class="col-md-12">
+  <div class="card">
+    <!-- /.card-header -->
+    <div class="card-body">
+      <!-- ID único para o carrossel com base no índice do loop -->
+      <div id="carouselIndicators-{{ forloop.counter }}" class="carousel slide" data-ride="carousel">
+        <!-- Indicadores do carrossel -->
+        <ol class="carousel-indicators">
+          {% for dado in content.dados %}
+          <li data-target="#carouselIndicators-{{ forloop.parentloop.counter }}"
+              data-slide-to="{{ forloop.counter0 }}"
+              class="{% if forloop.first %}active{% endif %}">
+          </li>
+          {% endfor %}
+        </ol>
+
+        <!-- Conteúdo do carrossel -->
+        <div class="carousel-inner">
+          {% for dado in content.dados %}
+          <div class="carousel-item {% if forloop.first %}active{% endif %}">
+            <div class="row">
+              <div class="col-12">
+                <h4>{{ dado.title }}</h4>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 col-sm-12">
+                <div class="card card-primary card-outline card-tabs">
+                  <div class="card-body">
+                    <div class="tab-content" id="tabContent-{{ forloop.parentloop.counter }}">
+                      <div class="tab-pane fade show active" id="tab-home-{{ forloop.counter }}" role="tabpanel" aria-labelledby="tab-home-tab-{{ forloop.counter }}">
+                        {{ dado.content | safe }}
+                      </div>
+                      <div>
+                        {% if dado.foto == "" or dado.foto == null %}
+                          <img src="{% static 'dist/img/not found.png' %}" alt="Not found imagem" class="img-fluid">
+                        {% else %}
+                          <img src="{{ dado.foto.url }}" alt="foto da região" class="img-fluid">
+                        {% endif %}
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /.card -->
+                  <div class="card-footer">
+                    {{ dado.author }}, {{ dado.created_at }}, Tópicos:
+                    {% for categorie in dado.categorie_post.all %}
+                      {{ categorie }},
+                    {% endfor %}
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+
+        <!-- Controles do carrossel -->
+        <a class="carousel-control-prev" href="#carouselIndicators-{{ forloop.counter }}" role="button" data-slide="prev">
+          <span class="carousel-control-custom-icon" aria-hidden="true">
+            <i class="fas fa-chevron-left"></i>
+          </span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselIndicators-{{ forloop.counter }}" role="button" data-slide="next">
+          <span class="carousel-control-custom-icon" aria-hidden="true">
+            <i class="fas fa-chevron-right"></i>
+          </span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+    <!-- /.card-body -->
+  </div>
+  <!-- /.card -->
+</div>
+</div>

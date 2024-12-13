@@ -1,0 +1,60 @@
+{% load static %}
+<div class="row">
+  <div class="col-12">
+    <h4>{{ content.title_card }}</h4>
+  </div>
+</div>
+  <div class="col-md-12">
+
+      <!-- /.card-header -->
+
+        <!-- ID único para o carrossel com base no índice do loop -->
+          <!-- Conteúdo do carrossel -->
+      {% for dado in content.dados %}
+        <div class="card">
+              <div class="card-body">
+                <div>
+                  <div class="row">
+                    <div class="col-12">
+                      <h4>{{ dado.title }}</h4>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-sm-12">
+                      <div class="card card-primary card-outline card-tabs">
+                        <div class="card-body">
+                          <div class="tab-content" id="tabContent-{{ forloop.parentloop.counter }}">
+                            <div class="tab-pane fade show active" id="tab-home-{{ forloop.counter }}" role="tabpanel" aria-labelledby="tab-home-tab-{{ forloop.counter }}">
+                              {{ dado.content | safe }}
+                            </div>
+                            <div>
+                            <div>
+                              {% if dado.foto == "" or dado.foto == null %}
+                                <img src="{% static 'dist/img/not found.png' %}" alt="Not found imagem" class="img-fluid">
+                              {% else %}
+                                <img src="{{ dado.foto.url }}" alt="foto da região" class="img-fluid">
+                              {% endif %}
+                            </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- /.card -->
+                        <div class="card-footer">
+                          {{ dado.author }}, {{ dado.created_at }}, Tópicos:
+                          {% for categorie in dado.categorie_post.all %}
+                            {{ categorie }},
+                          {% endfor %}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+      {% endfor %}
+
+      <!-- /.card-body -->
+
+    <!-- /.card -->
+  </div>
+</div>

@@ -1,0 +1,31 @@
+{% load static %}
+<div class="row">
+  <div class="col-12">
+    <h4>{{ content.title_card }}</h4>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12 col-sm-12">
+    <div id="accordion">
+      {% for tab_title, tab_content in content.tabs_title_contents.items %}
+      <div class="card card-primary card-outline">
+        <!-- Botão de colapso -->
+<!--        <a class="d-block w-100" data-toggle="collapse">-->
+        <a class="d-block w-100" data-toggle="collapse" href="#{{ tab_content.0 }}">
+          <div class="card-header">
+            <h4 class="card-title w-100">
+              {{ tab_title }}
+            </h4>
+          </div>
+        </a>
+        <!-- Conteúdo colapsável -->
+        <div id="{{ tab_content.0 }}" class="{{ tab_content.1 }}" data-parent="#accordion">
+          <div class="card-body">
+            {{ tab_content.2 | safe }}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

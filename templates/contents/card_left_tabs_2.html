@@ -1,0 +1,41 @@
+{% load static %}
+<div class="row">
+  <div class="col-12">
+    <h4>{{ content.title_card }}</h4>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12 col-sm-12">
+    <div class="card card-primary card-tabs">
+      <div class="card-header p-0 pt-1">
+        <ul class="nav nav-tabs" id="gestao-tabs" role="tablist">
+          {% for tab_title in contents.0.tabs_title_contents.keys %}
+            <li class="nav-item">
+              <a class="nav-link {% if forloop.first %}active{% endif %}"
+                 id="gestao-tab-{{ tab_title|slugify }}"
+                 data-toggle="pill"
+                 href="#gestao-content-{{ tab_title|slugify }}"
+                 role="tab"
+                 aria-controls="gestao-content-{{ tab_title|slugify }}"
+                 aria-selected="{% if forloop.first %}true{% else %}false{% endif %}">
+                {{ tab_title }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="card-body">
+        <div class="tab-content" id="gestao-tabs-content">
+          {% for tab_title, tab_content in contents.0.tabs_title_contents.items %}
+            <div class="tab-pane fade {% if forloop.first %}show active{% endif %}"
+                 id="gestao-content-{{ tab_title|slugify }}"
+                 role="tabpanel"
+                 aria-labelledby="gestao-tab-{{ tab_title|slugify }}">
+              {{ tab_content.0 | safe }}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
