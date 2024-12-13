@@ -4,7 +4,7 @@ from funcionalidades.views import (gestao_de_equipes, plano_de_melhorias, macro_
 
 urlpatterns = [
     path('funcionalidades-gestao-de-equipes', gestao_de_equipes, name='gestao_de_equipes'),
-    path('funcionalidades-plano-de-melhorias/', plano_de_melhorias, name='plano_de_melhorias'),
+    path('funcionalidades-plano-de-melhorias', plano_de_melhorias, name='plano_de_melhorias'),
     path('funcionalidades-macro-servicos', macro_servicos, name='macro_servicos'),
     path('funcionalidades-automacoes', automacoes, name='automacoes'),
     path('funcionalidades-agendamentos', agendamentos, name='agendamentos'),
