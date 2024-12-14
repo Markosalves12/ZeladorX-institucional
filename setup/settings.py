@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-r66wj)a)0rp48o1uawkgv!esx-uhv1#z&*5hvki+=gy2&@4awj
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['zeladorx-institucional.com.br', 'www.zeladorx-institucional.com.br']
 
 
 # Application definition
