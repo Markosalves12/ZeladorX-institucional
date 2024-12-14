@@ -9,10 +9,9 @@
     <div class="card card-primary card-outline card-tabs">
       <div class="card-body">
         <object data="{% static content.doc_walk %}" type="application/pdf" width="100%" height="1700px">
-          <p>Seu navegador não suporta PDF embutido. Você pode baixar o documento <a href="caminho/para/seu-documento.pdf">aqui</a>.</p>
+          <p>Seu navegador não suporta PDF embutido. Você pode baixar o documento <a href="{% static content.doc_walk %}">aqui</a>.</p>
         </object>
       </div>
-      <!-- /.card -->
     </div>
   </div>
 </div>

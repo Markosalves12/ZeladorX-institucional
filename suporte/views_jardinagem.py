@@ -10,6 +10,8 @@ def manual_jardinagem(request):
         },
     ]
 
+    # [relatorio_comprovacao_pdf_jardinagem, 'docs/documents/relatorio_de_servicos_Concluido_jardinagem.pdf'],
+
     return generic_view(
         request=request,
         contents=contents,
