@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-r66wj)a)0rp48o1uawkgv!esx-uhv1#z&*5hvki+=gy2&@4awj
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['zeladorx-institucional.com.br', 'www.zeladorx-institucional.com.br']
+ALLOWED_HOSTS = ['zeladorx-institucional.com.br', 'www.zeladorx-institucional.com.br', '*.zeladorx-institucional.com.br']
 
 
 # Application definition
@@ -79,6 +79,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'setup.wsgi.application'
 
+DEBUG = False
+
+if not DEBUG:  # Apenas em produção
+    SECURE_SSL_REDIRECT = True
+    SECURE_HSTS_SECONDS = 31536000
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_PRELOAD = True
+    SECURE_BROWSER_XSS_FILTER = True
+    SECURE_CONTENT_TYPE_NOSNIFF = True
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
