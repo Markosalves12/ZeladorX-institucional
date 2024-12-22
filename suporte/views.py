@@ -47,8 +47,6 @@ def contato(request):
     if request.method == 'POST':
         forms = Contact(request.POST)
 
-        print("chegui aqui")
-
         if forms.is_valid():
             email = forms['email'].value()
             nome = forms['nome'].value()
