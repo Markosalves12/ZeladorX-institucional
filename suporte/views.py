@@ -1,6 +1,10 @@
 from django.shortcuts import render
 from suporte.utils_FAQ import (introduction_to_zx, setting_firs_steps, manager_scalles, schedules_tasks,
                                reports_indicator, securuty_privacy, suport_to_client)
+from suporte.forms import Contact
+from utils.utils import enviar_notificacao
+from django.contrib import messages
+from django.shortcuts import reverse
 
 # Create your views here.
 def FAQ(request):
@@ -35,18 +39,35 @@ def contato(request):
     contents = [
         {
             'type': 'contact',
-            'title_card': '',
-            'tabs_title_contents': {
-                '1. Introdução ao ZeladorX': ['collapseOne', 'collapse show', introduction_to_zx],
-                '2. Configuração e Primeiros Passos': ['collapseTwo', 'collapse', setting_firs_steps],
-                '3. Gerenciamento de Equipes e Escalas': ['collapseThree', 'collapse', manager_scalles],
-                '4. Agendamento de Tarefas e Serviços': ['collapseFour', 'collapse', schedules_tasks],
-                '5. Relatórios e Indicadores de Desempenho': ['collapseFive', 'collapse', reports_indicator],
-                '6. Segurança e Privacidade': ['collapseSix', 'collapse', securuty_privacy],
-                '7. Suporte e Atendimento ao Cliente': ['collapseSeven', 'collapse', suport_to_client],
-            }
-        },
+            'url': reverse('contato'),
+            'forms': Contact()
+        }
     ]
+
+    if request.method == 'POST':
+        forms = Contact(request.POST)
+
+        print("chegui aqui")
+
+        if forms.is_valid():
+            email = forms['email'].value()
+            nome = forms['nome'].value()
+            assunto = forms['assunto'].value()
+            menssagem = forms['Mensagem'].value()
+
+            enviar_notificacao(
+                destinatario=[email],
+                assunto=assunto,
+                contexto={
+                    'nome': nome,
+                    'email': email,
+                    'menssagem': menssagem
+                },
+                template='notifications/send_message.html'
+            )
+
+            messages.success(request, "Mensagem recebida pelo nosso time")
+
 
     return render(
         request=request,

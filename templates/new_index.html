@@ -60,6 +60,7 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
+        {% include 'partials/_messages.html' %}
         {% for content in contents %}
           {% if content.type == 'card-left-tabs' and content.id == 1 %}
             {% include 'contents/card_left_tabs.html' %}

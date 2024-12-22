@@ -3,31 +3,34 @@
   <div class="card-body row">
     <div class="col-5 text-center d-flex align-items-center justify-content-center">
       <div class="">
-        <h2>zelador<strong>X</strong></h2>
+        <h2>Zelador<strong>X</strong></h2>
         <p class="lead mb-5">Rua Acre, 247, Ponto Belo, Espirito santo<br>
           Telefone: 27 996090941
         </p>
       </div>
     </div>
     <div class="col-7">
-      <div class="form-group">
-        <label for="inputName">Nome</label>
-        <input type="text" id="inputName" class="form-control" />
-      </div>
-      <div class="form-group">
-        <label for="inputEmail">E-Mail</label>
-        <input type="email" id="inputEmail" class="form-control" />
-      </div>
-      <div class="form-group">
-        <label for="inputSubject">Assunto</label>
-        <input type="text" id="inputSubject" class="form-control" />
-      </div>
-      <div class="form-group">
-        <label for="inputMessage">Menssagem</label>
-        <textarea id="inputMessage" class="form-control" rows="4"></textarea>
-      </div>
-      <div class="form-group">
-        <input type="submit" class="btn btn-primary" value="Enviar menssagem">
+      <div class="card-body login-card-body">
+        <form action="{{ content.url }}" method="POST" enctype="multipart/form-data">
+          <div class="card-body">
+            <div class="form-group">
+              {% csrf_token %}
+                <div class="form-group">
+                  {% for field in content.forms.visible_fields %}
+                    <div class="form-group">
+                      <label for="{{ field.id_for_label }}" >
+                        {{ field.label }}
+                      </label>
+                      {{ field }}
+                    </div>
+                  {% endfor %}
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="POST" class="btn btn-primary">Enviar menssagem</button>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   </div>
