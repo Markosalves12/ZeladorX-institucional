@@ -53,19 +53,22 @@ def contato(request):
             assunto = forms['assunto'].value()
             menssagem = forms['Mensagem'].value()
 
-            enviar_notificacao(
-                destinatario=[email],
-                assunto=assunto,
-                contexto={
-                    'nome': nome,
-                    'email': email,
-                    'menssagem': menssagem
-                },
-                template='notifications/send_message.html'
-            )
+            try:
+                enviar_notificacao(
+                    destinatario=[email],
+                    assunto=assunto,
+                    contexto={
+                        'nome': nome,
+                        'email': email,
+                        'menssagem': menssagem
+                    },
+                    template='notifications/send_message.html'
+                )
 
-            messages.success(request, "Mensagem recebida pelo nosso time")
+                messages.success(request, "Mensagem recebida pelo nosso time")
 
+            except:
+                messages.error(request, "Serviço de email indisponivel")
 
     return render(
         request=request,
