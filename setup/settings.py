@@ -30,7 +30,7 @@ SECRET_KEY = str(os.getenv('SECRET_KEY'))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['zeladorx-institucional.com.br', 'www.zeladorx-institucional.com.br', '*.zeladorx-institucional.com.br']
+ALLOWED_HOSTS = ['*.zeladorx-institucional.com.br']
 
 
 # Application definition
