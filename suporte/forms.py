@@ -46,7 +46,7 @@ class Contact(forms.Form):
     Mensagem = forms.CharField(
         label="Mensagem",
         required=True,
-        max_length=3000,
+        max_length=1000,
         widget=forms.TextInput(
             attrs={
                 "class": "form-control",
