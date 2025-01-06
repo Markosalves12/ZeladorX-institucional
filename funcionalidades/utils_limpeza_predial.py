@@ -12,7 +12,7 @@ automacoes_limpeza_predial_description = """
     </ul>
     
      <div style="background-color: #f9f9f9; border-left: 4px solid #007bff; padding: 15px; margin: 20px 0;">
-        <h5><strong>Mais de 60 permissões exclusivas</strong></h5>
+        <h5><strong>Mais de 120 permissões exclusivas</strong></h5>
         <p>
           Essas são nossas sugestões de estrutura hierárquica de permissões. No entanto, o <strong>ZeladorX</strong> vai além, oferecendo <strong>mais de 60 permissões diferentes</strong>. 
           Cada botão, tela, tabela ou funcionalidade pode ser configurado para acesso exclusivo, garantindo total controle e segurança no uso do sistema.
