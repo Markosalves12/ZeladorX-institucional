@@ -55,7 +55,7 @@ def contato(request):
 
             try:
                 enviar_notificacao(
-                    destinatario=[email],
+                    destinatario=[email, 'institucional@zeladorx-institucional.com.br'],
                     assunto=assunto,
                     contexto={
                         'nome': nome,

@@ -29,11 +29,11 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = str(os.getenv('SECRET_KEY'))
 
-EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST = "smtp.hostinger.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = "facilitymanagement41@gmail.com"
-EMAIL_HOST_PASSWORD = "fgfo ttbl pszf rnoj"
+EMAIL_HOST_USER = "institucional@zeladorx-institucional.com.br"
+EMAIL_HOST_PASSWORD = "DATAma1516%"
 EMAIL_USE_SSL = False
 
 # EMAIL_HOST = os.getenv('EMAIL_HOST')
