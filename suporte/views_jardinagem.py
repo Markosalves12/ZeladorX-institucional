@@ -27,7 +27,7 @@ def tutoriais_jardinagem(request):
         {
             'type': 'card-no-tabs',
             'title_card': 'Em desenvolvimento',
-            'texts': "Em breve traremos tutoriais em video para melhor aprendizado dos nossos parceiro"
+            'texts': "Em breve traremos tutoriais em video para melhor aprendizado dos nossos parceiros"
         },
     ]
 

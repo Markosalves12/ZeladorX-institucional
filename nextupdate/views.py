@@ -6,7 +6,7 @@ from utils.utils import paginate
 def atualizacoes(request):
     dados_paginados = paginate(
         request=request,
-        data_objects=proximas_atualizacao.objects.all(),
+        data_objects=proximas_atualizacao.objects.all().order_by('-data'),
         per_page=5
     )
 
