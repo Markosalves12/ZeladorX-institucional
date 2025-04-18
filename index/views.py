@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from index.utils import automation_tasks, schedule_smart, detail_report, equiip_control, first_view, and_now
 from utils.utils import paginate
 from blog.models import BlogPost
