@@ -5,11 +5,22 @@
   <meta name="description" content="{{ description|default:'Gestão integrada de zeladoria, equipes, serviços, relatórios e comunicação corporativa.' }}">
   <meta name="theme-color" content="#07111f">
   <title>ZeladorX | {{ page_name|default:'Gestão integrada de zeladoria' }}</title>
+  <script>
+    (function () {
+      try {
+        var savedTheme = localStorage.getItem('zeladorx.institutional.theme');
+        var preferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.dataset.theme = savedTheme || preferredTheme;
+      } catch (error) {
+        document.documentElement.dataset.theme = 'light';
+      }
+    })();
+  </script>
   <link rel="shortcut icon" href="{% static 'dist/img/favicon-16x16.png' %}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{% static 'plugins/fontawesome-free/css/all.min.css' %}">
   <link rel="stylesheet" href="{% static 'dist/css/adminlte.min.css' %}">
-  <link rel="stylesheet" href="{% static 'institutional/site.css' %}?v=1">
+  <link rel="stylesheet" href="{% static 'institutional/site.css' %}?v=2">
 </head>
