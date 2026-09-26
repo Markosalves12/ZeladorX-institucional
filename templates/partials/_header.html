@@ -1,35 +1,15 @@
 {% load static %}
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K6ZP75JH8K"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-K6ZP75JH8K');
-  </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ZeladorX | {{ page_name }}</title>
-  <link rel="shortcut icon" href="{% static 'dist/img/favicon-16x16.png' %}" />
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
+  <meta name="description" content="{{ description|default:'Gestão integrada de zeladoria, equipes, serviços, relatórios e comunicação corporativa.' }}">
+  <meta name="theme-color" content="#07111f">
+  <title>ZeladorX | {{ page_name|default:'Gestão integrada de zeladoria' }}</title>
+  <link rel="shortcut icon" href="{% static 'dist/img/favicon-16x16.png' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{% static 'plugins/fontawesome-free/css/all.min.css' %}">
-  <!-- SweetAlert2 -->
-  <link rel="stylesheet" href="{% static 'plugins/sweetalert2/sweetalert2.min.css' %}">
-  <!-- Toastr -->
-  <link rel="stylesheet" href="{% static 'plugins/toastr/toastr.min.css' %}">
-  <!-- Theme style -->
   <link rel="stylesheet" href="{% static 'dist/css/adminlte.min.css' %}">
-    <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5Y0RCPWHWR"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-5Y0RCPWHWR');
-  </script>
+  <link rel="stylesheet" href="{% static 'institutional/site.css' %}?v=1">
 </head>

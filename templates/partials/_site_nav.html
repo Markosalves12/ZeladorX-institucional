@@ -1,0 +1,10 @@
+<header class="site-header" data-site-header>
+  <div class="site-container nav-shell">
+    <a class="brand" href="{% url 'index' %}" aria-label="ZeladorX — início"><span class="brand-mark">ZX</span><span>ZeladorX</span></a>
+    <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" data-menu-toggle><i class="fas fa-bars" aria-hidden="true"></i></button>
+    <nav class="site-nav" aria-label="Navegação principal" data-site-menu>
+      <a href="{% url 'macro_servicos' %}">Produto</a><a href="{% url 'gestao_de_equipes' %}">Equipes</a><a href="{% url 'relatorios_planejamento' %}">Relatórios</a><a href="{% url 'blog_home' %}">Conteúdo</a><a href="{% url 'contato' %}">Contato</a>
+    </nav>
+    <a class="button button-small nav-cta" href="https://zeladorx-971186eceb54.herokuapp.com/" target="_blank" rel="noopener">Acessar plataforma <i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+  </div>
+</header>

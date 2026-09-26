@@ -1,12 +1,13 @@
-{% load static %}
-<footer class="main-footer">
-  <div class="float-right d-none d-sm-block">
-    <b>Versão</b> 1.0
+<footer class="site-footer">
+  <div class="site-container footer-grid">
+    <div>
+      <a class="brand footer-brand" href="{% url 'index' %}" aria-label="ZeladorX — início">
+        <span class="brand-mark">ZX</span><span>ZeladorX</span>
+      </a>
+      <p>Gestão integrada para operações de zeladoria, do planejamento à comprovação.</p>
+    </div>
+    <div><strong>Produto</strong><a href="{% url 'macro_servicos' %}">Macro serviços</a><a href="{% url 'gestao_de_equipes' %}">Gestão de equipes</a><a href="{% url 'relatorios_planejamento' %}">Relatórios</a></div>
+    <div><strong>Recursos</strong><a href="{% url 'FAQ' %}">Perguntas frequentes</a><a href="{% url 'blog_home' %}">Conteúdo</a><a href="{% url 'contato' %}">Contato</a></div>
   </div>
-  <strong>Copyright &copy; 2024 <a href="#">ZX</a>.</strong> Todos os direitos reservados.
-  <a>
-    <b>
-      Zelador
-    </b>X</a></b>
-  </a>
+  <div class="site-container footer-bottom"><span>© {% now "Y" %} ZeladorX</span><span>Brasil · versão institucional 1.0</span></div>
 </footer>
