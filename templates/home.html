@@ -2,10 +2,16 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 {% with page_name="Gestão integrada de zeladoria" description="Planeje, execute, acompanhe e comprove serviços de zeladoria em uma única operação." %}{% include 'partials/_header.html' %}{% endwith %}
-<body class="home-page">
+<body class="home-page immersive-site">
+<div class="reading-progress" aria-hidden="true"><i data-reading-progress></i></div>
 {% include 'partials/_site_nav.html' %}
 <main>
-  <section class="hero">
+  <section class="hero" data-immersive-hero>
+    <div class="hero-atmosphere" aria-hidden="true">
+      <i class="depth-orbit depth-orbit-one" data-parallax data-depth="0.18"></i>
+      <i class="depth-orbit depth-orbit-two" data-parallax data-depth="-0.1"></i>
+      <span class="hero-scan"></span>
+    </div>
     <div class="site-container hero-grid">
       <div class="hero-copy reveal">
         <div class="status-pill"><span></span> Ecossistema operacional integrado</div>
@@ -16,7 +22,9 @@
         <div class="hero-actions"><a class="button button-primary" href="{% url 'macro_servicos' %}">Conhecer o ecossistema <i class="fas fa-arrow-right"></i></a><a class="button button-ghost" href="https://zeladorx-971186eceb54.herokuapp.com/" target="_blank" rel="noopener">Acessar plataforma</a></div>
         <ul class="trust-list"><li><i class="fas fa-check"></i> Controle por permissões</li><li><i class="fas fa-check"></i> PDF e XLSX</li><li><i class="fas fa-check"></i> Integração por API</li></ul>
       </div>
-      <div class="command-center reveal" aria-label="Resumo visual de uma operação ZeladorX">
+      <div class="command-stage reveal reveal-depth" data-tilt-stage>
+        <div class="command-shadow" aria-hidden="true"></div>
+        <div class="command-center" data-tilt-card aria-label="Resumo visual de uma operação ZeladorX">
         <div class="command-topbar"><div><span class="command-brand">ZX</span><strong>Central operacional</strong></div><span class="live-indicator"><i></i> operação ativa</span></div>
         <div class="command-layout">
           <aside class="command-sidebar"><span class="active"><i class="fas fa-th-large"></i> Visão geral</span><span><i class="fas fa-calendar"></i> Agenda</span><span><i class="fas fa-users"></i> Equipes</span><span><i class="fas fa-file-alt"></i> Relatórios</span></aside>
@@ -26,13 +34,17 @@
             <div class="mini-grid"><div><i class="fas fa-qrcode"></i><span>Solicitações QR</span><strong>Entrada simplificada</strong></div><div><i class="fas fa-file-export"></i><span>Relatórios</span><strong>PDF · XLSX</strong></div><div><i class="fas fa-code"></i><span>APIs</span><strong>Dados integrados</strong></div><div><i class="fas fa-shield-alt"></i><span>Permissões</span><strong>Acesso por função</strong></div></div>
           </div>
         </div>
+        </div>
+        <aside class="floating-signal floating-signal-top" aria-hidden="true"><span><i></i> Sincronização</span><strong>Em tempo real</strong><small>equipes · agenda · evidências</small></aside>
+        <aside class="floating-signal floating-signal-bottom" aria-hidden="true"><i class="fas fa-bolt"></i><div><span>Fluxo operacional</span><strong>6 estágios conectados</strong></div></aside>
       </div>
-    </div>
+      </div>
+    <div class="scroll-cue" aria-hidden="true"><span>Explore</span><i></i></div>
   </section>
 
   <section class="flow-section section-light"><div class="site-container">
     <div class="section-heading reveal"><p class="eyebrow">Um fluxo, seis estágios</p><h2>A operação se organiza conforme o tempo e avança conforme o trabalho.</h2><p>O ZeladorX separa automaticamente o que está agendado, próximo ou atrasado. A equipe conduz o restante até a conclusão ou o cancelamento.</p></div>
-    <div class="workflow reveal">
+    <div class="workflow reveal reveal-depth" data-depth-surface>
       <div class="workflow-group"><div class="workflow-label"><i class="fas fa-bolt"></i> Controle automático por data</div><div class="workflow-stages"><article><span>01</span><i class="stage-dot blue"></i><strong>Agendados</strong><small>mais de 7 dias</small></article><article><span>02</span><i class="stage-dot yellow"></i><strong>Próximos</strong><small>até 7 dias</small></article><article><span>03</span><i class="stage-dot red"></i><strong>Atrasados</strong><small>prazo vencido</small></article></div></div>
       <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
       <div class="workflow-group"><div class="workflow-label"><i class="fas fa-hand-pointer"></i> Controle manual da execução</div><div class="workflow-stages"><article><span>04</span><i class="stage-dot green"></i><strong>Em andamento</strong><small>execução ativa</small></article><article><span>05</span><i class="stage-dot navy"></i><strong>Concluído</strong><small>comprovação</small></article><article><span>06</span><i class="stage-dot gray"></i><strong>Cancelado</strong><small>registro preservado</small></article></div></div>
@@ -42,10 +54,10 @@
   <section class="ecosystem-section"><div class="site-container">
     <div class="section-heading reveal"><p class="eyebrow">Ecossistema ZeladorX</p><h2>Ferramentas conectadas à realidade da operação.</h2><p>Uma base comum de empresas, unidades, áreas, equipes e permissões atende diferentes frentes de trabalho.</p></div>
     <div class="ecosystem-grid">
-      <article class="feature-large reveal"><div class="feature-icon green"><i class="fas fa-seedling"></i></div><span class="feature-number">01</span><h3>Jardinagem</h3><p>Áreas verdes, vegetação, terrenos, serviços periódicos, equipes e produtividade organizados em um mesmo fluxo.</p><a href="{% url 'macro_servicos' %}">Explorar macro serviço <i class="fas fa-arrow-right"></i></a></article>
-      <article class="feature-large reveal"><div class="feature-icon blue"><i class="fas fa-building"></i></div><span class="feature-number">02</span><h3>Limpeza predial</h3><p>Rotinas por ambiente e horário, checklists, subtarefas, recursos e acompanhamento de múltiplas unidades.</p><a href="{% url 'macro_servicos' %}">Explorar macro serviço <i class="fas fa-arrow-right"></i></a></article>
-      <article class="feature-small reveal"><i class="fas fa-comments"></i><div><h3>ChatChannels</h3><p>Comunicação corporativa em salas, com mensagens em tempo real e controle de histórico.</p></div></article>
-      <article class="feature-small reveal"><i class="fas fa-code"></i><div><h3>Plataforma de APIs</h3><p>Integrações para dados operacionais de Jardinagem, Limpeza Predial e serviços especiais.</p></div></article>
+      <article class="feature-large reveal reveal-depth" data-depth-surface><div class="feature-icon green"><i class="fas fa-seedling"></i></div><span class="feature-number">01</span><h3>Jardinagem</h3><p>Áreas verdes, vegetação, terrenos, serviços periódicos, equipes e produtividade organizados em um mesmo fluxo.</p><a href="{% url 'macro_servicos' %}">Explorar macro serviço <i class="fas fa-arrow-right"></i></a></article>
+      <article class="feature-large reveal reveal-depth" data-depth-surface><div class="feature-icon blue"><i class="fas fa-building"></i></div><span class="feature-number">02</span><h3>Limpeza predial</h3><p>Rotinas por ambiente e horário, checklists, subtarefas, recursos e acompanhamento de múltiplas unidades.</p><a href="{% url 'macro_servicos' %}">Explorar macro serviço <i class="fas fa-arrow-right"></i></a></article>
+      <article class="feature-small reveal reveal-depth" data-depth-surface><i class="fas fa-comments"></i><div><h3>ChatChannels</h3><p>Comunicação corporativa em salas, com mensagens em tempo real e controle de histórico.</p></div></article>
+      <article class="feature-small reveal reveal-depth" data-depth-surface><i class="fas fa-code"></i><div><h3>Plataforma de APIs</h3><p>Integrações para dados operacionais de Jardinagem, Limpeza Predial e serviços especiais.</p></div></article>
     </div>
   </div></section>
 
@@ -54,7 +66,7 @@
     <div class="capability-list"><article class="reveal"><span>01</span><div><h3>Agendamentos inteligentes</h3><p>Rotinas recorrentes e atividades futuras entram no fluxo com antecedência.</p></div></article><article class="reveal"><span>02</span><div><h3>Solicitações por QR Code</h3><p>Visitantes e usuários externos podem relatar demandas pelo local correto, sem conta.</p></div></article><article class="reveal"><span>03</span><div><h3>Relatórios de planejamento e comprovação</h3><p>Exporte informações em PDF e XLSX para análise, auditoria e prestação de contas.</p></div></article><article class="reveal"><span>04</span><div><h3>Permissões por responsabilidade</h3><p>Gestores definem o que cada colaborador pode consultar e executar.</p></div></article></div>
   </div></section>
 
-  <section class="cta-section"><div class="site-container cta-inner reveal"><div><p class="eyebrow">Comece pelo que sua operação precisa</p><h2>Transforme planejamento em trabalho comprovado.</h2></div><div class="cta-actions"><a class="button button-primary" href="{% url 'contato' %}">Falar com o time</a><a class="button button-ghost" href="{% url 'FAQ' %}">Tirar dúvidas</a></div></div></section>
+  <section class="cta-section immersive-cta"><div class="site-container cta-inner reveal"><div><p class="eyebrow">Comece pelo que sua operação precisa</p><h2>Transforme planejamento em trabalho comprovado.</h2></div><div class="cta-actions"><a class="button button-primary" href="{% url 'contato' %}">Falar com o time</a><a class="button button-ghost" href="{% url 'FAQ' %}">Tirar dúvidas</a></div></div></section>
 </main>
 {% include 'partials/_footer.html' %}{% include 'partials/_js.html' %}
 </body></html>
